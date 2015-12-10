@@ -1,0 +1,301 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Wells-fargo-analytics-challenge</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Wells-fargo-analytics-challenge</h1>
+    </header>
+    <div id="container">
+      <p class="tagline"></p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge" class="code">View Wells-fargo-analytics-challenge on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="wells-fargo-analytics-challenge-overview" class="anchor" href="#wells-fargo-analytics-challenge-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wells Fargo Analytics Challenge Overview</h1>
+
+<p>On November 10th, Wells Fargo unveiled it's first analytics challenge. Their main goal for the challenge was to devise an efficient way to break down different comments left on social media sites in order to determine what topics consumers were most concerned over. They gave this description to each of the competitors. "Dialogues on social media can provide tremendous insight into the behaviors, desires, pains, and thoughts of consumers. We'd like your help in developing a repeatable process that identifies, classifies, and extracts the underlying drivers of consumer financial conversations and comments in social media data." </p>
+
+<h2>
+<a id="team-plan-and-goals" class="anchor" href="#team-plan-and-goals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Team Plan and Goals</h2>
+
+<p>Having been given this request, our group devised a plan to locate and analyze different topics within the mass of data provided for the challenge. Our goals were to set up a program that would analyze the words of each individual line of text within the document and would then score each line based on the amount of positive and negative words it found. In order to do this, we needed to condense the data into a document the program could read and then recognize key words that would contribute to our analysis. Determining this, we also created the goal of utilizing our code to eliminate any useless or confusing words from our data set, allowing for cleaner and more concentrated findings. </p>
+
+<h2>
+<a id="process" class="anchor" href="#process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Process</h2>
+
+<p>Our team decided that, in order to have any insight on conversational drivers within the data, we would need to break down the data into the most frequently discussed topics, and the words that were associated with both the individual banks and the topics themselves, in order to determine which bank had the most positive responses and which bank had the most negative. To do this, we used the first several thousand lines of our refined data set to locate lines where important topics were recurring in the data, such as discussions about customer service or consumers' security. We had hoped to use this information to create a Bag of Words analysis based off of our labeling, but we were running out of time for the deadline, and decided instead that I would manually comb through the topics and find the ones that most often appeared. While this was not our original plan, manually sorting the data by positive and negative topics allowed us to not only determine what topics were most concerning to consumers, but to determine which bank was associated with a more positive feedback from customers and which had more negative feedback. We simplified the data by removing numeric text, symbols, punctuation, and useless words, and then split the data into positive and negative scores by bank. With each bank having   a list of positive and negative texts, we then used the words from each to create word clouds out of the 100 most frequent words for each bank's positive and negative data. </p>
+
+<h2>
+<a id="analyzed-findings" class="anchor" href="#analyzed-findings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analyzed Findings</h2>
+
+<p>After we researched, created, and ran the code we needed for our program, we cleaned up our code and prepared a report of what we found. We looked at the percentage of positive and negative texts per bank to verify what we discovered, and the numbers corroborate our results. The percentages show that Bank B had the highest percentage of positive responses, and that Bank D had the highest percentage of negative responses. Looking back through our labels, we noted that in Bank B's  word cloud (Shown in report below) the large majority of words present corresponded to positive statements about customer service, and for Bank D's cloud (In report below) the cloud containing a large percent of negative words related to security and fraud. Checking through the topics we had found, we realized that Bank B had the most occurrences of customers satisfied or extremely pleased with the customer service they received, and Bank D had a large amount of tweets directed at a hacking issue that Bank D experienced. </p>
+
+<h3>
+<a id="official-written-report" class="anchor" href="#official-written-report" aria-hidden="true"><span class="octicon octicon-link"></span></a>Official Written Report</h3>
+
+<p>"220,377 posts, and two weeks to figure them all out. These are very intimidating numbers for a team of freshman with zero experience in the data science world. How does one even start something like this? The first step was to outline potential approaches. After several scrapped ideas, the final was to focus on each bank individually. To do this, we found data points containing “banka”, “bankb”, “bankc”, and “bankd”, and categorized them accordingly. Our next step was divide each bank’s posts based on their sentiment, ie. the post’s attitude, positive or negative. To find the sentiments of each data point, we used a list of positive words and a list a negative words. We compared the words in each data point to the words of the lists, and a score was recorded for each post. If a post contained a positive word, its score went up by one, and if a post contained a negative word, its score went down by one. Posts with scores above two were marked as positive, and posts with scores below negative two were marked as negative. 
+So, at this point, the data points have been divided into eight groups: a positive and negative group for each of the four banks. However, not every post from the original data set is a part of one of these groups. Any post that does not mention any of the banks or has a middling sentiment was removed. Also, if a post mentioned two or more of the banks, it was placed in multiple groups.
+Now, to determine the subject matters of the posts, we looked at each group as a large body of text. Within each of these bodies, we found the most frequently used words. This gave us some overall topics to look at for each group, instead of classifying each post individually.
+Below is an outline of our thought process when approaching this project.</p>
+
+<p><img src="https://d18qs7yq39787j.cloudfront.net/uploads/redactor_rails/picture/462/Screen_Shot_2015-11-21_at_2.36.55_PM.png" alt=""></p>
+
+<p>What were these overall topics though? We found that almost every bank is either succeeding or failing in customer service, ATM's, fraud/ security, or technology/machines. We can prove this based on the data and its relationship to the original posts. By making a word cloud of both the positive and negative words in each post, we can see which words are used more. For example, the word cloud below is of bank b. </p>
+
+<p><img src="https://d18qs7yq39787j.cloudfront.net/uploads/redactor_rails/picture/463/bankBPos.png" alt=""></p>
+
+<p>This word cloud makes it clear that these are positive words and that customer service is very good in bank b. Below is a negative word cloud for bank b. Words like money, and fraud are very large and thus those are the main problems with bank b. This word cloud represents that the majority of people posting negative posts are talking about fraud/ security. </p>
+
+<p><img src="https://d18qs7yq39787j.cloudfront.net/uploads/redactor_rails/picture/464/bankBNeg.png" alt=""></p>
+
+<p>These topics we found from the words clouds were basically the same across the board. Every bank has problems in every topic, but some banks have bigger problems than others. For example, bank b has some people complaining about customer service, but they have more people saying how great the customer service is. With banks so large, and millions of customers, someone is bound to complain about each and every possible problem. By analyzing using a word cloud though, bank b can see that their largest problem is fraud and not necessarily customer service even though a few people complained about it."</p>
+
+<p>Here is the R code we used to analyze the text and generate the wordclouds.</p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-v">df</span> <span class="pl-k">=</span> read.table(<span class="pl-s"><span class="pl-pds">'</span>dataset.txt<span class="pl-pds">'</span></span>,<span class="pl-v">sep</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>|<span class="pl-pds">"</span></span>,<span class="pl-v">header</span><span class="pl-k">=</span><span class="pl-c1">T</span>)
+<span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-v">FullText</span> <span class="pl-k">=</span> as.character(<span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>)
+
+<span class="pl-v">df.texts</span> <span class="pl-k">=</span> as.data.frame(<span class="pl-smi">df</span>[,ncol(<span class="pl-smi">df</span>)])
+
+colnames(<span class="pl-smi">df.texts</span>) <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>FullText<span class="pl-pds">'</span></span>
+
+<span class="pl-v">df.texts.clean</span> <span class="pl-k">=</span> as.data.frame(iconv(<span class="pl-smi">df.texts</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>, <span class="pl-s"><span class="pl-pds">"</span>latin1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>ASCII<span class="pl-pds">"</span></span>, <span class="pl-v">sub</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>))
+colnames(<span class="pl-smi">df.texts.clean</span>) <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>FullText<span class="pl-pds">'</span></span>
+
+<span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-v">FullText</span> <span class="pl-k">=</span> <span class="pl-smi">df.texts.clean</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>
+
+<span class="pl-v">idx.1000</span> <span class="pl-k">=</span> sample(<span class="pl-c1">1</span><span class="pl-k">:</span>nrow(<span class="pl-smi">df</span>),<span class="pl-c1">1000</span>)
+<span class="pl-v">df.1000</span> <span class="pl-k">=</span> <span class="pl-smi">df</span>[<span class="pl-smi">idx.1000</span>,]
+
+library(<span class="pl-smi">tm</span>) 
+<span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> Corpus(DataframeSource(<span class="pl-smi">df.texts.clean</span>))   
+
+<span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map(<span class="pl-smi">docs</span>, <span class="pl-smi">stripWhitespace</span>)
+
+<span class="pl-v">bankA.idx</span> <span class="pl-k">=</span> which( sapply( <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span> , <span class="pl-k">function</span>( <span class="pl-smi">x</span> ) grepl( <span class="pl-s"><span class="pl-pds">"</span>BankA<span class="pl-pds">"</span></span> , <span class="pl-smi">x</span> ) ) )
+<span class="pl-v">bankB.idx</span> <span class="pl-k">=</span> which( sapply( <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span> , <span class="pl-k">function</span>( <span class="pl-smi">x</span> ) grepl( <span class="pl-s"><span class="pl-pds">"</span>BankB<span class="pl-pds">"</span></span> , <span class="pl-smi">x</span> ) ) )
+<span class="pl-v">bankC.idx</span> <span class="pl-k">=</span> which( sapply( <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span> , <span class="pl-k">function</span>( <span class="pl-smi">x</span> ) grepl( <span class="pl-s"><span class="pl-pds">"</span>BankC<span class="pl-pds">"</span></span> , <span class="pl-smi">x</span> ) ) )
+<span class="pl-v">bankD.idx</span> <span class="pl-k">=</span> which( sapply( <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span> , <span class="pl-k">function</span>( <span class="pl-smi">x</span> ) grepl( <span class="pl-s"><span class="pl-pds">"</span>BankD<span class="pl-pds">"</span></span> , <span class="pl-smi">x</span> ) ) )
+
+<span class="pl-v">df.bankA</span> <span class="pl-k">=</span> <span class="pl-smi">df</span>[ <span class="pl-smi">bankA.idx</span> ,   ]
+<span class="pl-v">df.bankB</span> <span class="pl-k">=</span> <span class="pl-smi">df</span>[ <span class="pl-smi">bankB.idx</span> ,   ]
+<span class="pl-v">df.bankC</span> <span class="pl-k">=</span> <span class="pl-smi">df</span>[ <span class="pl-smi">bankC.idx</span> ,   ]
+<span class="pl-v">df.bankD</span> <span class="pl-k">=</span> <span class="pl-smi">df</span>[ <span class="pl-smi">bankD.idx</span> ,   ]
+
+<span class="pl-k">for</span> (<span class="pl-smi">i</span> <span class="pl-k">in</span> <span class="pl-c1">1</span><span class="pl-k">:</span>nrow(<span class="pl-smi">df</span>)) {
+  meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>MediaType<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">MediaType</span>[<span class="pl-smi">i</span>]
+  meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>Year<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">Year</span>[<span class="pl-smi">i</span>]
+  <span class="pl-k">if</span> (grepl(<span class="pl-s"><span class="pl-pds">"</span>BankA<span class="pl-pds">"</span></span>,<span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>[<span class="pl-smi">i</span>])) {
+    meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>BankA<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-c1">T</span>
+  } <span class="pl-k">else</span> {
+    meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>BankA<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-c1">F</span>
+  }  <span class="pl-k">if</span> (grepl(<span class="pl-s"><span class="pl-pds">"</span>BankB<span class="pl-pds">"</span></span>,<span class="pl-smi">df</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>[<span class="pl-smi">i</span>])) {
+    meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>BankB<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-c1">T</span>
+  } <span class="pl-k">else</span> {
+    meta(<span class="pl-smi">docs</span>[[<span class="pl-smi">i</span>]],<span class="pl-s"><span class="pl-pds">"</span>BankB<span class="pl-pds">"</span></span>) <span class="pl-k">=</span> <span class="pl-c1">F</span>
+  }
+}
+<span class="pl-smi">bankA.idx</span> <span class="pl-k">&lt;-</span> meta(<span class="pl-smi">docs</span>, <span class="pl-s"><span class="pl-pds">"</span>BankA<span class="pl-pds">"</span></span>) <span class="pl-k">==</span> <span class="pl-c1">T</span>
+
+<span class="pl-v">bankA.docs</span> <span class="pl-k">=</span> <span class="pl-smi">docs</span>[<span class="pl-smi">bankA.idx</span>]
+<span class="pl-v">bankB.docs</span> <span class="pl-k">=</span> <span class="pl-smi">docs</span>[<span class="pl-smi">bankB.idx</span>]
+<span class="pl-v">bankC.docs</span> <span class="pl-k">=</span> <span class="pl-smi">docs</span>[<span class="pl-smi">bankC.idx</span>]
+<span class="pl-v">bankD.docs</span> <span class="pl-k">=</span> <span class="pl-smi">docs</span>[<span class="pl-smi">bankD.idx</span>]
+
+summary(<span class="pl-smi">docs</span>)
+
+<span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map(<span class="pl-smi">docs</span>, <span class="pl-smi">removePunctuation</span>) 
+
+<span class="pl-c"># Download and upload: http://www.cs.uic.edu/~liub/FBS/opinion-lexicon-English.rar</span>
+<span class="pl-c"># system('unrar e opinion-lexicon-English.rar')</span>
+
+<span class="pl-smi">pos</span> <span class="pl-k">&lt;-</span> scan(<span class="pl-s"><span class="pl-pds">'</span>positive-words.txt<span class="pl-pds">'</span></span>,<span class="pl-v">what</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>character<span class="pl-pds">'</span></span>,<span class="pl-v">comment.char</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>;<span class="pl-pds">'</span></span>)
+<span class="pl-smi">neg</span> <span class="pl-k">&lt;-</span> scan(<span class="pl-s"><span class="pl-pds">'</span>negative-words.txt<span class="pl-pds">'</span></span>,<span class="pl-v">what</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>character<span class="pl-pds">'</span></span>,<span class="pl-v">comment.char</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>;<span class="pl-pds">'</span></span>)
+
+<span class="pl-v">score.sentiment</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">sentences</span>, <span class="pl-smi">pos.words</span>, <span class="pl-smi">neg.words</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>none<span class="pl-pds">'</span></span>)
+{
+  require(<span class="pl-smi">plyr</span>)
+  require(<span class="pl-smi">stringr</span>)
+
+  <span class="pl-v">scores</span> <span class="pl-k">=</span> laply(<span class="pl-smi">sentences</span>, <span class="pl-k">function</span>(<span class="pl-smi">sentence</span>, <span class="pl-smi">pos.words</span>, <span class="pl-smi">neg.words</span>) {
+
+    <span class="pl-v">sentence</span> <span class="pl-k">=</span> gsub(<span class="pl-s"><span class="pl-pds">'</span>[[:punct:]]<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>, <span class="pl-smi">sentence</span>)
+    <span class="pl-v">sentence</span> <span class="pl-k">=</span> gsub(<span class="pl-s"><span class="pl-pds">'</span>[[:cntrl:]]<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>, <span class="pl-smi">sentence</span>)
+    <span class="pl-v">sentence</span> <span class="pl-k">=</span> gsub(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\\</span>d+<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>, <span class="pl-smi">sentence</span>)
+    <span class="pl-v">sentence</span> <span class="pl-k">=</span> tolower(<span class="pl-smi">sentence</span>)
+
+    <span class="pl-v">word.list</span> <span class="pl-k">=</span> str_split(<span class="pl-smi">sentence</span>, <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\\</span>s+<span class="pl-pds">'</span></span>)
+    <span class="pl-v">words</span> <span class="pl-k">=</span> unlist(<span class="pl-smi">word.list</span>)
+
+    <span class="pl-v">pos.matches</span> <span class="pl-k">=</span> match(<span class="pl-smi">words</span>, <span class="pl-smi">pos.words</span>)
+    <span class="pl-v">neg.matches</span> <span class="pl-k">=</span> match(<span class="pl-smi">words</span>, <span class="pl-smi">neg.words</span>)
+
+    <span class="pl-v">pos.matches</span> <span class="pl-k">=</span> <span class="pl-k">!</span>is.na(<span class="pl-smi">pos.matches</span>)
+    <span class="pl-v">neg.matches</span> <span class="pl-k">=</span> <span class="pl-k">!</span>is.na(<span class="pl-smi">neg.matches</span>)
+
+    <span class="pl-v">score</span> <span class="pl-k">=</span> sum(<span class="pl-smi">pos.matches</span>) <span class="pl-k">-</span> sum(<span class="pl-smi">neg.matches</span>)
+
+    <span class="pl-k">return</span>(<span class="pl-smi">score</span>)
+  }, <span class="pl-smi">pos.words</span>, <span class="pl-smi">neg.words</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span>.<span class="pl-smi">progress</span> )
+
+  <span class="pl-v">scores.df</span> <span class="pl-k">=</span> <span class="pl-k">data.frame</span>(<span class="pl-v">score</span><span class="pl-k">=</span><span class="pl-smi">scores</span>, <span class="pl-v">text</span><span class="pl-k">=</span><span class="pl-smi">sentences</span>)
+  <span class="pl-k">return</span>(<span class="pl-smi">scores.df</span>)
+}
+
+<span class="pl-v">bankA.scores</span> <span class="pl-k">=</span> score.sentiment(<span class="pl-smi">df.bankA</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>, <span class="pl-smi">pos</span>, <span class="pl-smi">neg</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>)
+<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-v">very.pos</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&gt;</span><span class="pl-k">=</span> <span class="pl-c1">2</span>)
+<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-v">very.neg</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&lt;</span><span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">2</span>)
+
+<span class="pl-v">bankA.numpos</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-smi">very.pos</span>)
+<span class="pl-v">bankA.numneg</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-smi">very.neg</span>)
+
+<span class="pl-v">bankA.global_score</span> <span class="pl-k">=</span> round( <span class="pl-c1">100</span> <span class="pl-k">*</span> <span class="pl-smi">bankA.numpos</span> <span class="pl-k">/</span> (<span class="pl-smi">bankA.numpos</span> <span class="pl-k">+</span> <span class="pl-smi">bankA.numneg</span>) )
+
+<span class="pl-smi">bankA.scores</span><span class="pl-k">$</span><span class="pl-v">mediatype</span> <span class="pl-k">=</span> <span class="pl-smi">df.bankA</span><span class="pl-k">$</span><span class="pl-smi">MediaType</span>
+
+<span class="pl-v">bankB.scores</span> <span class="pl-k">=</span> score.sentiment(<span class="pl-smi">df.bankB</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>, <span class="pl-smi">pos</span>, <span class="pl-smi">neg</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>)
+<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-v">very.pos</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&gt;</span><span class="pl-k">=</span> <span class="pl-c1">2</span>)
+<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-v">very.neg</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&lt;</span><span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">2</span>)
+
+<span class="pl-v">bankB.numpos</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-smi">very.pos</span>)
+<span class="pl-v">bankB.numneg</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-smi">very.neg</span>)
+
+<span class="pl-v">bankB.global_score</span> <span class="pl-k">=</span> round( <span class="pl-c1">100</span> <span class="pl-k">*</span> <span class="pl-smi">bankB.numpos</span> <span class="pl-k">/</span> (<span class="pl-smi">bankB.numpos</span> <span class="pl-k">+</span> <span class="pl-smi">bankB.numneg</span>) )
+
+<span class="pl-smi">bankB.scores</span><span class="pl-k">$</span><span class="pl-v">mediatype</span> <span class="pl-k">=</span> <span class="pl-smi">df.bankB</span><span class="pl-k">$</span><span class="pl-smi">MediaType</span>
+
+<span class="pl-v">bankC.scores</span> <span class="pl-k">=</span> score.sentiment(<span class="pl-smi">df.bankC</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>, <span class="pl-smi">pos</span>, <span class="pl-smi">neg</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>)
+<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-v">very.pos</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&gt;</span><span class="pl-k">=</span> <span class="pl-c1">2</span>)
+<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-v">very.neg</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&lt;</span><span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">2</span>)
+
+<span class="pl-v">bankC.numpos</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-smi">very.pos</span>)
+<span class="pl-v">bankC.numneg</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-smi">very.neg</span>)
+
+<span class="pl-v">bankC.global_score</span> <span class="pl-k">=</span> round( <span class="pl-c1">100</span> <span class="pl-k">*</span> <span class="pl-smi">bankC.numpos</span> <span class="pl-k">/</span> (<span class="pl-smi">bankC.numpos</span> <span class="pl-k">+</span> <span class="pl-smi">bankC.numneg</span>) )
+
+<span class="pl-smi">bankC.scores</span><span class="pl-k">$</span><span class="pl-v">mediatype</span> <span class="pl-k">=</span> <span class="pl-smi">df.bankC</span><span class="pl-k">$</span><span class="pl-smi">MediaType</span>
+
+<span class="pl-v">bankD.scores</span> <span class="pl-k">=</span> score.sentiment(<span class="pl-smi">df.bankD</span><span class="pl-k">$</span><span class="pl-smi">FullText</span>, <span class="pl-smi">pos</span>, <span class="pl-smi">neg</span>, <span class="pl-v">.progress</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>)
+<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-v">very.pos</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&gt;</span><span class="pl-k">=</span> <span class="pl-c1">2</span>)
+<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-v">very.neg</span> <span class="pl-k">=</span> as.numeric(<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-smi">score</span> <span class="pl-k">&lt;</span><span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">2</span>)
+
+<span class="pl-v">bankD.numpos</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-smi">very.pos</span>)
+<span class="pl-v">bankD.numneg</span> <span class="pl-k">=</span> sum(<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-smi">very.neg</span>)
+
+<span class="pl-v">bankD.global_score</span> <span class="pl-k">=</span> round( <span class="pl-c1">100</span> <span class="pl-k">*</span> <span class="pl-smi">bankD.numpos</span> <span class="pl-k">/</span> (<span class="pl-smi">bankD.numpos</span> <span class="pl-k">+</span> <span class="pl-smi">bankD.numneg</span>) )
+
+<span class="pl-smi">bankD.scores</span><span class="pl-k">$</span><span class="pl-v">mediatype</span> <span class="pl-k">=</span> <span class="pl-smi">df.bankD</span><span class="pl-k">$</span><span class="pl-smi">MediaType</span>
+
+<span class="pl-en">find.freq.words</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>( <span class="pl-smi">bank.scores</span> , <span class="pl-smi">sentiment</span> )
+{
+  <span class="pl-k">if</span> ( <span class="pl-smi">sentiment</span> <span class="pl-k">==</span> <span class="pl-s"><span class="pl-pds">"</span>positive<span class="pl-pds">"</span></span> )
+  {
+    <span class="pl-v">texts</span> <span class="pl-k">=</span> as.data.frame( <span class="pl-smi">bank.scores</span>[ <span class="pl-smi">bank.scores</span><span class="pl-k">$</span><span class="pl-smi">very.pos</span> <span class="pl-k">==</span> <span class="pl-c1">1</span> , <span class="pl-c1">2</span> ] )
+  } <span class="pl-k">else</span> {
+    <span class="pl-v">texts</span> <span class="pl-k">=</span> as.data.frame( <span class="pl-smi">bank.scores</span>[ <span class="pl-smi">bank.scores</span><span class="pl-k">$</span><span class="pl-smi">very.neg</span> <span class="pl-k">==</span> <span class="pl-c1">1</span> , <span class="pl-c1">2</span> ] )
+  }
+
+
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> Corpus( DataframeSource( <span class="pl-smi">texts</span> ) )
+
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">removePunctuation</span> )
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">removeNumbers</span> )
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">tolower</span> )
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">removeWords</span> , stopwords( <span class="pl-s"><span class="pl-pds">"</span>english<span class="pl-pds">"</span></span> ) )
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">stripWhitespace</span> )
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map( <span class="pl-smi">docs</span> , <span class="pl-smi">PlainTextDocument</span> ) 
+
+  <span class="pl-smi">docs</span> <span class="pl-k">&lt;-</span> tm_map(<span class="pl-smi">docs</span>, <span class="pl-smi">removeWords</span>, c( <span class="pl-s"><span class="pl-pds">"</span>bank<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>banka<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>bankb<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>bankc<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>bankd<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>twithndl<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>twithndlbanka<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>twithndlbankb<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>twithndlbankc<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>twithndlbankd<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>internet<span class="pl-pds">"</span></span> , <span class="pl-s"><span class="pl-pds">"</span>rettwit<span class="pl-pds">"</span></span> ) )
+
+  <span class="pl-smi">dtm</span>  <span class="pl-k">&lt;-</span> DocumentTermMatrix( <span class="pl-smi">docs</span> )
+  <span class="pl-smi">freq</span> <span class="pl-k">&lt;-</span> colSums( as.matrix( <span class="pl-smi">dtm</span> ) )
+
+  <span class="pl-k">return</span>( <span class="pl-smi">freq</span> )
+}
+
+<span class="pl-v">bankA.pos.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankA.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>positive<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankB.pos.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankB.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>positive<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankC.pos.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankC.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>positive<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankD.pos.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankD.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>positive<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankA.neg.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankA.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>negative<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankB.neg.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankB.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>negative<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankC.neg.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankC.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>negative<span class="pl-pds">"</span></span> )
+<span class="pl-v">bankD.neg.freq</span> <span class="pl-k">=</span> find.freq.words( <span class="pl-smi">bankD.scores</span> , <span class="pl-s"><span class="pl-pds">"</span>negative<span class="pl-pds">"</span></span> )
+
+<span class="pl-smi">bankA.pos.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankA.pos.freq</span> )
+<span class="pl-smi">bankB.pos.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankB.pos.freq</span> )
+<span class="pl-smi">bankC.pos.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankC.pos.freq</span> )
+<span class="pl-smi">bankD.pos.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankD.pos.freq</span> )
+<span class="pl-smi">bankA.neg.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankA.neg.freq</span> )
+<span class="pl-smi">bankB.neg.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankB.neg.freq</span> )
+<span class="pl-smi">bankC.neg.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankC.neg.freq</span> )
+<span class="pl-smi">bankD.neg.ord</span> <span class="pl-k">&lt;-</span> order( <span class="pl-smi">bankD.neg.freq</span> )
+
+<span class="pl-smi">bankA.pos.freq</span>[ tail( <span class="pl-smi">bankA.pos.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankB.pos.freq</span>[ tail( <span class="pl-smi">bankB.pos.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankC.pos.freq</span>[ tail( <span class="pl-smi">bankC.pos.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankD.pos.freq</span>[ tail( <span class="pl-smi">bankD.pos.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankA.neg.freq</span>[ tail( <span class="pl-smi">bankA.neg.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankB.neg.freq</span>[ tail( <span class="pl-smi">bankB.neg.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankC.neg.freq</span>[ tail( <span class="pl-smi">bankC.neg.ord</span> , <span class="pl-c1">100</span> ) ]
+<span class="pl-smi">bankD.neg.freq</span>[ tail( <span class="pl-smi">bankD.neg.ord</span> , <span class="pl-c1">100</span> ) ]
+
+
+set.seed( <span class="pl-c1">142</span> )
+wordcloud( names( <span class="pl-smi">bankA.pos.freq</span> ), <span class="pl-smi">bankA.pos.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )
+wordcloud( names( <span class="pl-smi">bankA.neg.freq</span> ), <span class="pl-smi">bankA.neg.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )
+wordcloud( names( <span class="pl-smi">bankB.pos.freq</span> ), <span class="pl-smi">bankB.pos.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )
+wordcloud( names( <span class="pl-smi">bankB.neg.freq</span> ), <span class="pl-smi">bankB.neg.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )
+wordcloud( names( <span class="pl-smi">bankC.pos.freq</span> ), <span class="pl-smi">bankC.pos.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">50</span> )
+wordcloud( names( <span class="pl-smi">bankC.neg.freq</span> ), <span class="pl-smi">bankC.neg.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">50</span> )
+wordcloud( names( <span class="pl-smi">bankD.pos.freq</span> ), <span class="pl-smi">bankD.pos.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )
+wordcloud( names( <span class="pl-smi">bankD.neg.freq</span> ), <span class="pl-smi">bankD.neg.freq</span> , <span class="pl-v">min.freq</span> <span class="pl-k">=</span> <span class="pl-c1">100</span> )</pre></div>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/PeytonH" class="avatar"><img src="https://avatars1.githubusercontent.com/u/16107562?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/PeytonH">PeytonH</a> maintains <a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge">Wells-fargo-analytics-challenge</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge/tarball/master" class="tar">tar</a><a href="https://github.com/PeytonH/Wells-Fargo-Analytics-Challenge/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
